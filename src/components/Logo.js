@@ -42,7 +42,8 @@ const Logo = () => {
           transition: "opacity 0.5s ease-in-out", // Geçiş efekti
           opacity: isHovered ? 0 : 1,
           zIndex: 1,
-          transform: isHovered ? "rotate(0deg)" : "rotate(0deg)", // Fare üzerine geldiğinde 180 derece döndür
+          transform: isHovered ? "rotate(180deg)" : "rotate(0deg)", // Fare üzerine geldiğinde 180 derece döndür
+          animation: isHovered ? "spin 2s linear forwards" : "none", // Animasyonu etkinleştir
         }}
       />
       <img
@@ -60,7 +61,7 @@ const Logo = () => {
           zIndex: 2,
           transform: isHovered ? "rotate(180deg)" : "rotate(360deg)", // Fare üzerine geldiğinde 180 derece döndür
           animation: isHovered ? "spin 1s linear forwards" : "none", // Animasyonu etkinleştir
-          transition: "opacity 0.9s ease-in-out", //
+          transition: "opacity 0.s ease-in-out", //
         }}
       />
     </div>

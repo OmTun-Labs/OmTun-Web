@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import ımg from "../img/mounth.png"
 import doğa from "../img/doğa.jpg"
+import ımg2 from "../img/1.png"
+import ımg3 from "../img/2.png"
+import ımg4 from "../img/3.png"
 
 const images = [
 
 ımg,
-doğa,
+  doğa,
+
+  
 ];
 
 const ImageSlider = () => {

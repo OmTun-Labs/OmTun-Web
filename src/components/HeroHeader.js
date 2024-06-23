@@ -21,12 +21,13 @@ const HeroHeader = () => {
     <div
       ref={headerRef}
       style={{
-        backgroundImage: `linear-gradient(to top, rgba(255, 155, 255, 0.8), transparent)`,
+        backgroundImage: `linear-gradient(to top, rgba(155, 155, 255, 0.8), transparent)`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        height: "110vh",
+        padding:10
       }}
     >
       <div
@@ -39,7 +40,7 @@ const HeroHeader = () => {
           borderTopRightRadius: 20,
           borderBottomLeftRadius: 20,
           borderBottomRightRadius: 20,
-          marginTop: 20,
+          marginTop: 10,
           zIndex: 100,
           display: "flex",
           flexDirection: "column",
