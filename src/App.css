@@ -28,6 +28,19 @@
   color: #61dafb;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +48,129 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+    box-shadow: 1px 1px 5px #00ff00; /* green */
+  }
+  10% {
+    opacity: 0.5;
+    box-shadow: 50px -5px 5px #ff69b4; /* hot pink */
+  }
+  15% {
+    opacity: 0.75;
+    box-shadow: 100px -11px 5px #ff0000; /* red */
+  }
+  20% {
+    opacity: 0.8;
+    box-shadow: 200px -7px 5px #ff8c00; /* dark orange */
+  }
+  25% {
+    opacity: 0.85;
+    box-shadow: 400px -3px 5px #0000ff; /* blue */
+  }
+  30% {
+    opacity: 0.9;
+    box-shadow: 500px 0px 5px #9400d3; /* dark violet */
+  }
+  35% {
+    opacity: 0.95;
+    box-shadow: 700px 3px 5px #00ff00; /* black */
+  }
+  40% {
+    opacity: 0.8;
+    box-shadow: 800px 2px 5px #ff1493; /* cyan */
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 1000px 2px 5px #000000; /* white */
+  }
+  
+  52% {
+    opacity: 0.9;
+    box-shadow: 995 1px 12px #000000; /* white */
+  }
+  
+  55% {
+    opacity: 0.9;
+    box-shadow: 1005px 5px 5px #000000; /* white */
+  }
+  64% {
+    opacity: 0.9;
+    box-shadow: 1000px 15px 21px #000000; /* white */
+  }
+  70% {
+    opacity: 0.85;
+    box-shadow: 900px -1px 5px #ff4500; /* orange red */
+  }
+
+  80% {
+    opacity: 0.9;
+    box-shadow: 400px 1px 5px #00ff00; /* green */
+  }
+  90% {
+    opacity: 0.8;
+    box-shadow: 200px -3px 5px #ff1493; /* deep pink */
+  }
+}
+
+@keyframes blink2 {
+0%, 100% {
+  opacity: 0.1;
+  box-shadow: 1px 1px 5px #00ff00; /* green */
+
+}
+
+100% {
+  opacity: 1;
+  box-shadow: 1px 1px 5px #00ff00; /* deep pink */
+}
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }

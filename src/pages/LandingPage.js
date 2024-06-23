@@ -8,23 +8,13 @@ import HeroBody from "../components/HeroBody";
 
 const LandingPage = () => {
   return (
-    <Box
-      sx={{
-        //  backgroundImage: `url(${mounth})`,
-        //  backgroundPositionY: "0px",
-        // backgroundRepeat: "no-repeat",
-        // backgroundSize: "cover",
-        backgroundImage: `linear-gradient(to top, rgba(155, 255, 155, 0.7), transparent)`,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
-      <HeroHeader />
-      <HeroBody/>
-    </Box>
+<div>
+  <HeroHeader />
+ <HeroBody />
+      
+
+</div>
+   
   );
 };
 

@@ -14,6 +14,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import colors from "../consts/colors";
 import darkColors from "../consts/darkColors";
+import "../App.css";
 
 const Navbar = () => {
   const [value, setValue] = React.useState(0);
@@ -22,22 +23,22 @@ const Navbar = () => {
     setValue(newValue);
   };
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: colors.green,
+      },
+      warning: {
+        main: colors.yellow,
+      },
+      success: {
+        main: colors.platinum,
+      },
+    },
+  });
+
   return (
-    <ThemeProvider
-      theme={createTheme({
-        palette: {
-          primary: {
-            main: colors.green,
-          },
-          warning: {
-            main: colors.yellow,
-          },
-          success: {
-            main: colors.platinum,
-          },
-        },
-      })}
-    >
+    <ThemeProvider theme={theme}>
       <AppBar position="static" color="transparent" elevation={0}>
         <Toolbar sx={{ justifyContent: "center", minHeight: "64px" }}>
           <Box
@@ -51,8 +52,30 @@ const Navbar = () => {
               justifyContent: "center",
               alignItems: "center",
               p: 1,
+             
+              boxShadow: "0px 10px 10px rgba(0, 0, 0, 0.15)",
+              position: "relative", // relative positioning for the animation dot
             }}
           >
+            {/* Blinking Dot */}
+            <Box
+              sx={{
+                position: "absolute",
+                left: 10,
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                backgroundColor: colors.green,
+                boxShadow: `0 0 10px ${colors.green}`,
+                animation: "blink 14s  infinite",
+                animationDelay: "4s",
+                
+              }}
+            />
+
+
             <Box
               sx={{
                 width: "80%",
@@ -77,12 +100,12 @@ const Navbar = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    padding: 2,
+                    padding: -1,
                   },
                   "& .MuiTab-root": {
-                    minHeight: "38px", // Yeni boyut
+                    minHeight: "38px",
                     minWidth: "40px",
-                    color: colors.platinum, // Tüm tabların metin rengi
+                    color: colors.platinum,
                     borderRadius: 2,
                     transition: "0.3s",
                     "&:hover": {
@@ -90,12 +113,12 @@ const Navbar = () => {
                     },
                   },
                   "& .Mui-selected": {
-                    color: colors.platinum, // Seçilen tabın metin rengi
-                    backgroundColor: darkColors.green, // Seçilen tabın arka plan rengi
+                    color: colors.platinum,
+                    backgroundColor: darkColors.green,
                     opacity: 0.9,
                     transition: "0.9s",
                     "& svg": {
-                      color: colors.green, // Seçilen tabın sembol rengi
+                      color: colors.green,
                     },
                   },
                 }}
