@@ -21,18 +21,18 @@ const HeroHeader = () => {
     <div
       ref={headerRef}
       style={{
-        backgroundImage: `linear-gradient(to top, rgba(155, 155, 255, 0.8), transparent)`,
+        background: `linear-gradient(to bottom, rgba(255, 255, 255, 0) 5%, ${colors.dark} 100%)`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         height: "110vh",
-        padding:10
+        padding: 10,
+        marginTop: "-6rem",
       }}
     >
       <div
         style={{
-          background: `linear-gradient(to bottom, rgba(255, 255, 255, 0) 2%, ${colors.platinum} 40%)`,
           color: colors.black,
           height: "90vh", // Header boyutu %90 viewport yüksekliği
           width: "80%",
@@ -50,12 +50,19 @@ const HeroHeader = () => {
           position: "relative",
           overflow: "hidden",
           padding: 10,
-          
         }}
       >
-        <MainNav/>
+        <MainNav />
 
-        <div style={{position: "absolute", width: "100%", height: "100%",alignItems: "center",overflow: "hidden" }}>
+        <div
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            overflow: "hidden",
+          }}
+        >
           <ImageCarosell />
         </div>
       </div>

@@ -1,126 +1,162 @@
-import React, { useState } from "react";
-import { Typography, Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
 import colors from "../consts/colors";
+import img1 from "../img/web1.png";
+import img2 from "../img/doğa.jpg";
+import img3 from "../img/web2.png";
+import img4 from "../img/web4.png";
+import img5 from "../img/web5.png";
 
 const ConstSlider = () => {
-  const [centerCardZIndex, setCenterCardZIndex] = useState(100);
-  const [leftCardZIndex, setLeftCardZIndex] = useState(90);
-  const [rightCardZIndex, setRightCardZIndex] = useState(90);
-  const bg = colors.black; // Assuming colors.black is defined in your colors constant file
+  const [visible, setVisible] = useState(false);
 
-  const bringToFront = (card) => {
-    if (card === "left") {
-      setLeftCardZIndex(100);
-      setCenterCardZIndex(90);
-      setRightCardZIndex(90);
-    } else if (card === "right") {
-      setRightCardZIndex(100);
-      setCenterCardZIndex(90);
-      setLeftCardZIndex(90);
-    } else {
-      setCenterCardZIndex(100);
-      setLeftCardZIndex(90);
-      setRightCardZIndex(90);
-    }
+  // Animation variables
+  const animationSpeed = "3s"; // Speed of the transition
+  const baseTransitionDelay = 0.5; // Base delay for each div
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        // Adjust the value as needed
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const commonStyles = {
+    width: "40%",
+    height: "60%",
+    position: "absolute",
+    backgroundColor: colors.black,
+    borderRadius: 20,
+    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+    overflow: "hidden",
+    transition: `transform ${animationSpeed} ease-in-out, opacity ${animationSpeed} ease-in-out`, // Smooth transition effect
+    transform: visible ? "translateY(0)" : "translateY(100%)",
+    opacity: visible ? 1 : 0,
   };
 
   return (
     <div
       style={{
-        padding: 20,
-        marginTop: 20,
-        position: "relative",
+        marginTop: "10rem",
+        position: "absolute",
         width: "100%",
-        height: "100%",
-        backgroundColor: bg, // Apply the background color here
+        height: "100vh",
       }}
     >
       <div
         style={{
+          ...commonStyles,
           width: "70%",
           height: "70%",
-          position: "absolute",
-          backgroundColor: bg,
-          borderRadius: 20,
-          top: "-10%",
+          top: "-5%",
           left: "15%",
-          zIndex: centerCardZIndex,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-          transition: "z-index 0.3s ease-in-out",
+          zIndex: 100,
+          transitionDelay: `${baseTransitionDelay * 0}s`,
         }}
       >
-        {/* Content of the first central div */}
-     
+        <img
+          src={img1}
+          alt="Hero Banner"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "10px",
+            objectFit: "fill",
+          }}
+        />
       </div>
 
       <div
         style={{
-          width: "40%", // Adjusted width for the left side div
-          height: "60%",
-          position: "absolute",
-          backgroundColor: bg,
-          borderRadius: 20,
-          top: "-5%",
-          left: "10%", // Adjusted left position for the left side div
-          zIndex: leftCardZIndex,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-          transition: "z-index 0.3s ease-in-out",
+          ...commonStyles,
+          left: "10%",
+          top: "5%",
+          zIndex: 90,
+          transitionDelay: `${baseTransitionDelay * 1}s`,
         }}
       >
-        {/* Content of the left side div */}
-
+        <img
+          src={img2}
+          alt="Hero Banner"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "10px",
+            objectFit: "fill",
+          }}
+        />
       </div>
 
       <div
         style={{
-          width: "40%", // Adjusted width for the right side div
-          height: "60%",
-          position: "absolute",
-          backgroundColor: bg,
-          borderRadius: 20,
-          top: "-5%",
-          right: "10%", // Adjusted right position for the right side div
-          zIndex: rightCardZIndex,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-          transition: "z-index 0.3s ease-in-out",
+          ...commonStyles,
+          right: "10%",
+          top: "5%",
+          zIndex: 90,
+          transitionDelay: `${baseTransitionDelay * 2}s`,
         }}
       >
-        {/* Content of the right side div */}
-
+        <img
+          src={img3}
+          alt="Hero Banner"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "10px",
+            objectFit: "fill",
+          }}
+        />
       </div>
 
       <div
         style={{
-          width: "40%",
-          height: "50%",
-          position: "absolute",
-          backgroundColor: bg,
-          borderRadius: 20,
-          top: "0%",
+          ...commonStyles,
           left: "5%",
+          top: "10%",
           zIndex: 80,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+          transitionDelay: `${baseTransitionDelay * 3}s`,
         }}
       >
-        {/* Content of the left div inside left card */}
-        
+        <img
+          src={img4}
+          alt="Hero Banner"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "10px",
+            objectFit: "fill",
+          }}
+        />
       </div>
 
       <div
         style={{
-          width: "40%",
-          height: "50%",
-          position: "absolute",
-          backgroundColor: bg,
-          borderRadius: 20,
-          top: "0%",
+          ...commonStyles,
           right: "5%",
+          top: "10%",
           zIndex: 80,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+          transitionDelay: `${baseTransitionDelay * 4}s`,
         }}
       >
-        {/* Content of the right div inside right card */}
-
+        <img
+          src={img5}
+          alt="Hero Banner"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "10px",
+            objectFit: "fill",
+          }}
+        />
       </div>
     </div>
   );

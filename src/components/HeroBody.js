@@ -1,41 +1,88 @@
-import React, { useState } from "react";
-import { Typography, Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
 import colors from "../consts/colors";
 import ConstSlider from "./ConstSlider";
+import { Typography } from "@mui/material";
 import darkColors from "../consts/darkColors";
 
 const HeroBody = () => {
+  const [visible, setVisible] = useState(false);
+  const [showTypography, setShowTypography] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (visible) {
+      const timer = setTimeout(() => {
+        setShowTypography(true);
+      }, 2000); // Delay in milliseconds, adjust as needed based on the duration of ConstSlider animations
+      return () => clearTimeout(timer);
+    } else {
+      setShowTypography(false);
+    }
+  }, [visible]);
 
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "column-reverse",
         alignItems: "center",
-        justifyContent: "center",
-        height: "110vh",
+        justifyContent: "space-evenly",
+        height: "100vh",
+        width: "100%",
         position: "relative",
-        backgroundColor: darkColors.white,
+        backgroundColor: "white",
       }}
     >
-      <ConstSlider />
       <div
         style={{
-          position: "absolute",
+          width: "100%",
+          height: "100%",
           display: "flex",
-          flexDirection: "row",
-          alignContent: "center",
-          justifyContent: "center",
-          width: "70%",
-          height: "20%",
-          backgroundColor: darkColors.white,
-          borderRadius: 20,
-          boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-          transition: "z-index 0.3s ease-in-out",
-          bottom: "10%",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          position: "relative",
         }}
-      ></div>
+      >
+        <ConstSlider />
+        {showTypography && (
+          <Typography
+          fontFamily="Arial"
+          >
+            <h1
+              style={{
+                color: colors.black,
+                textAlign: "center",
+                fontSize: "3rem",
+                animation: "fadeIn 5s ease-in", // Animasyon süresini 1 saniyeye ve geçiş tipini 'ease-in' yapalım
+                opacity: 1, // Opacity 1 olsun
+                position: "absolute",
+                bottom: "-10%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                zIndex: 1,
+              }}
+            >
+              Yenilikçi Yazılım Çözümleriyle Geleceği Şekillendiriyoruz
+            </h1>
+          </Typography>
+        )}
+      </div>
     </div>
   );
 };
