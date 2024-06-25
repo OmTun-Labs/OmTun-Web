@@ -7,14 +7,19 @@ import { Box } from "@mui/material";
 import HeroBody from "../components/HeroBody";
 import HeroBodyEnd from "../components/HeroBodyEnd";
 import Body from "../components/Body";
+import Footer from "../components/Footer";
+import Social from "../components/Social";
 
 const LandingPage = () => {
   return (
-<div>
+    <div>
+     
+        <Social/>
   <HeroHeader />
       <HeroBody />
       <HeroBodyEnd />
-      <Body/>
+      <Body />
+      <Footer/>
       
 
 </div>

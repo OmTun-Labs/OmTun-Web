@@ -87,6 +87,8 @@ const Body = () => (
       container
       style={{
         marginTop: "10rem",
+        paddingLeft: "2rem",
+        paddingRight: "2rem",
       }}
       spacing={2}
       alignItems="center"

@@ -5,6 +5,7 @@ import DividerNav from "./DividerNav";
 import Logo from "./Logo";
 import ImageCarosell from "./ImageCarosell";
 import MainNav from "./MainNav";
+import darkColors from "../consts/darkColors";
 
 const HeroHeader = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -21,7 +22,7 @@ const HeroHeader = () => {
     <div
       ref={headerRef}
       style={{
-        background: `linear-gradient(to bottom, rgba(255, 255, 255, 0) 5%, ${colors.dark} 100%)`,
+        background: `linear-gradient(to top, rgba(255, 255, 255, 0) 5%, ${darkColors.green} 100%)`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

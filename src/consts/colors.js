@@ -11,6 +11,8 @@ const colors = {
   red: "#EA4218",
   black: "#312F2F",
   mor: "#7E1DD9",
+  blue: "blue",
+  
 };
 
 export default colors;

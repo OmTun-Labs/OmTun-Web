@@ -4,6 +4,7 @@ import Fingerprint from "@mui/icons-material/Fingerprint";
 import ArrowOutward from "@mui/icons-material/ArrowOutward";
 import RateDiv from "./Rating";
 import colors from "../consts/colors";
+import darkColors from "../consts/darkColors";
 
 const rateValues = [4.2, 4.5, 4.9, 5.0];
 
@@ -194,7 +195,7 @@ const BodyPaper = ({ img, text, link, linkgit,desc }) => {
           variant="h6"
           p={3}
           component="div"
-          style={{ textAlign: "center", fontFamily: "Poppins" }}
+          style={{ textAlign: "center", fontFamily: "Poppins",fontWeight:"300" }}
           
         >
          {desc}
