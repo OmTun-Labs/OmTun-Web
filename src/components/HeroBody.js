@@ -69,7 +69,7 @@ const HeroBody = () => {
                 color: colors.black,
                 textAlign: "center",
                 fontSize: "3rem",
-                animation: "fadeIn 5s ease-in", // Animasyon süresini 1 saniyeye ve geçiş tipini 'ease-in' yapalım
+                animation: "fadeIn 3s ease-in", // Animasyon süresini 1 saniyeye ve geçiş tipini 'ease-in' yapalım
                 opacity: 1, // Opacity 1 olsun
                 position: "absolute",
                 bottom: "-10%",

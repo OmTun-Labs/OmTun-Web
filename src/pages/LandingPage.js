@@ -6,13 +6,15 @@ import mounth from "../img/mounth.png";
 import { Box } from "@mui/material";
 import HeroBody from "../components/HeroBody";
 import HeroBodyEnd from "../components/HeroBodyEnd";
+import Body from "../components/Body";
 
 const LandingPage = () => {
   return (
 <div>
   <HeroHeader />
       <HeroBody />
-      <HeroBodyEnd/>
+      <HeroBodyEnd />
+      <Body/>
       
 
 </div>

@@ -65,7 +65,7 @@ const SubWebPages = () => {
       <Container maxWidth="lg">
         <Box textAlign="center" pt={5}>
           <Typography variant="h4" gutterBottom>
-            İmparatorluğumuzun Hayranlık Uyandıran Teması Var
+      Yazılım Teknolojilerimizle birlikte işinizi büyütün
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             Şablonumuzdaki tüm özellikleri seveceksiniz. %100 garanti
@@ -92,7 +92,7 @@ const SubWebPages = () => {
                   flexDirection="column"
                   alignItems="center"
                           height="100%"
-                          gap={2}
+                          gap={4}
                 >
                   {feature.icon}
                   <Typography variant="h6" style={{ marginTop: "10px" }}>
