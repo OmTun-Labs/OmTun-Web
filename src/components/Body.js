@@ -13,28 +13,32 @@ import noktadesen from "../img/noktadesen.png";
 
 const paperInfo = [
   {
-    img: img1,
+    img: img2,
     text: "Ulaşım Uygulaması",
     link: "http://www.elittur.com",
     linkgit: "https://github.com/OmTun-Labs/transporter-website",
+    desc: "Ulaşım Araçlarının Kullanıcıya Hızlı ve Güvenilir Bir Şekilde Ulaşmasını Amaçladık",
   },
   {
     img: img2,
-    text: "Mounth",
+    text: "Proje",
     link: "http://www.mounth.com",
     linkgit: "https://github.com/OmTun-Labs/transporter-website",
+    desc: "Lojistik İşlemlerini İş Sahiplerinin Kesintisiz Doğru Bilgi İle Erişimini Sağladık",
   },
   {
     img: img2,
-    text: "Web1",
+    text: "Proje",
     link: "http://www.web1.com",
     linkgit: "https://github.com/OmTun-Labs/transporter-website",
+    desc: "Öğrencilerin Not Tutmaları İçin Kullanışlı ve Kolay Anlaşılabilir Not Uygulması Tasarladık",
   },
   {
     img: img2,
-    text: "Web2",
+    text: "Proje",
     link: "http://www.web2.com",
     linkgit: "https://github.com/OmTun-Labs/transporter-website",
+    desc: "Sağlık Bilgilerini Düzenli Olarak Kayıt Altına Alan ve Raporlayan Sağlık Sistemi Oluşturduk",
   },
 ];
 
@@ -106,6 +110,7 @@ const Body = () => (
             text={info.text}
             link={info.link}
             linkgit={info.linkgit}
+            desc={info.desc}
           />
         </Grid>
       ))}

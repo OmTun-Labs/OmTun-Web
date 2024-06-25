@@ -1,11 +1,15 @@
-import { Button, IconButton, Paper, Typography, } from "@mui/material";
 import React, { useState } from "react";
-import colors from "../consts/colors";
-import darkColors from "../consts/darkColors";
+import { Box, Button, IconButton, Paper, Typography } from "@mui/material";
 import Fingerprint from "@mui/icons-material/Fingerprint";
 import ArrowOutward from "@mui/icons-material/ArrowOutward";
-const BodyPaper = ({ img, text, link, linkgit }) => {
+import RateDiv from "./Rating";
+import colors from "../consts/colors";
+
+const rateValues = [4.2, 4.5, 4.9, 5.0];
+
+const BodyPaper = ({ img, text, link, linkgit,desc }) => {
   const [style, setStyle] = useState({});
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } =
@@ -13,8 +17,8 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
     const x = (e.clientX - left) / width;
     const y = (e.clientY - top) / height;
 
-    const rotateX = (y - 0.5) * 20; // Rotate by up to 30 degrees in Y axis
-    const rotateY = (x - 0.5) * -20; // Rotate by up to 30 degrees in X axis
+    const rotateX = (y - 0.5) * 20; // Rotate by up to 20 degrees in Y axis
+    const rotateY = (x - 0.5) * -20; // Rotate by up to 20 degrees in X axis
 
     setStyle({
       transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
@@ -26,6 +30,11 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
       transform: `perspective(1000px) rotateX(0deg) rotateY(0deg)`,
       transition: "transform 0.5s ease", // Smoothly return to original state
     });
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
   };
 
   return (
@@ -49,6 +58,7 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
     >
       <img
         src={img}
@@ -63,25 +73,36 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
         }}
       />
 
-      <Typography
-        variant="h4"
+      <div
         style={{
-          fontFamily: "Lora",
+          fontFamily: "Poppins",
           color: colors.black,
           position: "absolute",
-          bottom: "8%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor:"white",
-          padding: "0.5rem 1rem",
-          borderRadius: "8px",
-          width: "80%",
+          top: 10,
+          right: 0,
+          padding: "5px 10px",
+          backgroundColor: colors.platinum,
+          minWidth: "30%",
+          height: "5%",
+          display: "flex",
+          alignItems: "center",
           justifyContent: "center",
-          textAlign: "center",
+          border: `1px solid ${colors.grey}`, // Border rengi ve kalınlığı
+          boxShadow: "0px 4px 8px rgba(120, 120, 120, 0.9)", // Box shadow
+          fontSize: "1.1rem", // Font boyutu
         }}
       >
-        {text}
-      </Typography>
+        <h3
+          style={{
+            fontFamily: "Poppins",
+            textAlign: "start",
+            fontWeight: 500,
+            margin: 0, // H3 içeriğinin kenar boşluğunu sıfırla
+          }}
+        >
+          {text}
+        </h3>
+      </div>
 
       <div
         style={{
@@ -95,11 +116,10 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
           bottom: 0,
           left: 0,
           fontFamily: "Poppins",
-          
         }}
       >
         <Button
-          style={{ width: "40%", opacity: 0.8 }}
+          style={{ width: "40%", height: "60%", opacity: 0.8 }}
           color="secondary"
           variant="contained"
           endIcon={<ArrowOutward />}
@@ -114,9 +134,10 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
             borderStyle: "solid",
             borderColor: colors.mor,
             width: "50%",
-            justifyContents: "center",
-            alignItems: "center",
+            height: "70%",
             display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             flexDirection: "row",
             borderRadius: "1rem",
             gap: "3rem",
@@ -140,6 +161,44 @@ const BodyPaper = ({ img, text, link, linkgit }) => {
             Kaynak Kod
           </div>
         </div>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <RateDiv defaultValue={rateValues[0]} precision={0.1} />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: isHovered ? "20%" : "10%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          opacity: isHovered ? 1 : 0,
+          transition: "bottom 0.5s ease, opacity 0.5s ease",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          color: "white",
+          padding: "1rem",
+          borderRadius: "1rem",
+        }}
+      >
+        <Typography
+          variant="h6"
+          p={3}
+          component="div"
+          style={{ textAlign: "center", fontFamily: "Poppins" }}
+          
+        >
+         {desc}
+        </Typography>
       </div>
     </Paper>
   );
